@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20220131210121">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220202091541">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,23 +23,24 @@
 					<div class="header__menu menu">
 						<nav class="menu__body">
 							<ul class="menu__list">
-								<li class="menu__item"><a href="#" class="menu__link">Home</a></li>
-								<li class="menu__item"><a href="#" class="menu__link">About</a></li>
-								<li class="menu__item"><a href="#" class="menu__link">Blog</a></li>
-								<li class="menu__item"><a href="#" class="menu__link">Contact Us</a></li>
+								<li class="menu__item"><a data-goto="#start" href="#" class="menu__link">Home</a></li>
+								<li class="menu__item"><a data-goto="#about" href="#" class="menu__link">About</a></li>
+								<li class="menu__item"><a data-goto="#team" href="#" class="menu__link">Blog</a></li>
+								<li class="menu__item"><a data-goto="#connect" href="#" class="menu__link">Contact Us</a></li>
 							</ul>
 						</nav>
 					</div>
 				</div>
 				<div class="header__column">
-					<button type="button" data-da=".menu__body,536" class="button button_transparent">Sign Up</button>
-					<button type="button" data-da=".menu__body,536" class="button">Log in</button>
+					<button type="button" data-da=".menu__body,536" data-popup="#popup-reg" class="button button_transparent">Sign
+						Up</button>
+					<button type="button" data-da=".menu__body,536" data-popup="#popup-log" class="button">Log in</button>
 				</div>
 				<button type="button" class="icon-menu"><span></span></button>
 			</div>
 		</header>
 		<main class="page">
-			<section class="start">
+			<section class="start" id="start">
 				<div class="start__container">
 					<div class="start__item start__item_text">
 						<div class="start__titles titles">
@@ -52,7 +53,7 @@
 						</div>
 						<div class="start__links">
 							<a href="#" class="start__button button">Appoinment</a>
-							<a href="#" class="start__link">Watch Video</a>
+							<a href="https://www.youtube.com/watch?v=k8oJfCi_9jA" data-youtube-place data-popup="#popup-video" class="start__link">Watch Video</a>
 						</div>
 					</div>
 					<div class="start__item start__item_img">
@@ -62,7 +63,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="about">
+			<section class="about" id="about">
 				<div class="about__container">
 					<div class="about__item about__item_img">
 						<div class="about__image"><picture><source srcset="img/about/01.webp" type="image/webp"><img src="img/about/01.png" alt=""></picture></div>
@@ -162,7 +163,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="team">
+			<section class="team" id="team">
 				<div class="team__container">
 					<div class="team__titles titles">
 						<h3 class="titles__suptitle">Our Doctors</h3>
@@ -355,7 +356,7 @@
 						</div>
 						<div class="body-reviews__item">
 							<div class="item-reviews">
-								<a href="" class="item-reviews__image-ibg"><picture><source srcset="img/reviews/01.webp" type="image/webp"><img src="img/reviews/01.png" alt=""></picture></a>
+								<a href="" class="item-reviews__image-ibg"><picture><source srcset="img/reviews/02.webp" type="image/webp"><img src="img/reviews/02.png" alt=""></picture></a>
 								<h2 class="item-reviews__titile">
 									Andrew Smith
 								</h2>
@@ -368,7 +369,7 @@
 						</div>
 						<div class="body-reviews__item">
 							<div class="item-reviews">
-								<a href="" class="item-reviews__image-ibg"><picture><source srcset="img/reviews/01.webp" type="image/webp"><img src="img/reviews/01.png" alt=""></picture></a>
+								<a href="" class="item-reviews__image-ibg"><picture><source srcset="img/reviews/03.webp" type="image/webp"><img src="img/reviews/03.png" alt=""></picture></a>
 								<h2 class="item-reviews__titile">
 									Andrew Smith
 								</h2>
@@ -382,7 +383,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="connect">
+			<section class="connect" id="connect">
 				<div class="connect__container">
 					<div class="connect__body">
 						<div class="connect__titles titles titles_white">
@@ -405,24 +406,84 @@
 		<footer class="footer">
 			<div class="footer__container">
 				<h2 class="footer__text">
-					Copyright © 2020 All rights Reserved - Dental
+					Copyright © 2022 All rights Reserved - Dental
 				</h2>
 			</div>
 		</footer>
 	</div>
-	<!-- 
-<div id="popup" aria-hidden="true" class="popup">
-	<div class="popup__wrapper">
-		<div class="popup__content">
-			<button data-close type="button" class="popup__close">Закрыть</button>
-			<div class="popup__text">
+	<div id="popup-log" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<button data-close type="button" class="popup__close">X</button>
+				<div class="popup__text">
+					<form action="#" class="popup__form form-popup">
+						<div class="form-popup__row">
+							<div class="form-popup__wrapper">
+								<input type="text" autocomplete="off" name="name" placeholder="Login" class="form-popup__input">
+							</div>
+							<div class="form-popup__wrapper">
+								<input autocomplete="off" type="password" name="form[]" data-error="Ошибка" placeholder="Password" class="form-popup__input">
+							</div>
+						</div>
+						<div class="form-popup__row">
+							<div class="form-popup__wrapper">
+								<button type="button" class="form-popup__button button">Log
+									in</button>
+							</div>
+							<div class="form-popup__wrapper">
+								<a href="#" class="form-popup__link">Forget Password?</a>
+							</div>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
- -->
 
-	<script src="js/app.min.js?_v=20220131210121"></script>
+	<div id="popup-reg" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<button data-close type="button" class="popup__close">X</button>
+				<div class="popup__text">
+					<form action="#" class="popup__form form-popup">
+						<div class="form-popup__row">
+							<div class="form-popup__wrapper">
+								<input type="text" autocomplete="off" name="name" placeholder="Login" class="form-popup__input">
+							</div>
+							<div class="form-popup__wrapper">
+								<input autocomplete="off" type="password" name="form[]" data-error="Ошибка" placeholder="Password" class="form-popup__input">
+							</div>
+						</div>
+						<div class="form-popup__row">
+							<div class="form-popup__wrapper">
+								<input type="text" autocomplete="off" name="email" placeholder="E-mail" class="form-popup__input">
+							</div>
+						</div>
+						<div class="form-popup__row">
+							<div class="form-popup__wrapper">
+								<button type="button" class="form-popup__button button">Sign Up
+								</button>
+							</div>
+							<div class="form-popup__wrapper">
+								<!-- <a href="#" class="form-popup__link">Forget Password?</a> -->
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="popup-video" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content popup__content_video">
+				<button data-close type="button" class="popup__close">X</button>
+				<div class="popup__text">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/wZ1MtdkkZXg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/app.min.js?_v=20220202091541"></script>
 </body>
 
 </html>

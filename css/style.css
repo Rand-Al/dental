@@ -214,11 +214,12 @@ body {
   border-radius: 0 0 14px 14px;
   min-width: 100%;
   left: 0;
-  background-color: #fff;
+  background-color: #f7fcff;
   border-top: 0;
   border: 1px solid #d9d9d9;
   border-top: 0;
   padding: 10px 0px 5px 0px;
+  font-size: 13px;
 }
 .select__scroll {
   overflow-y: auto;
@@ -250,6 +251,115 @@ body {
 }
 ._select-tag {
   cursor: pointer;
+}
+
+body::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease 0s;
+  pointer-events: none;
+  z-index: 149;
+}
+
+body.popup-show::after {
+  opacity: 1;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 30px 10px;
+  transition: visibility 0.8s ease 0s;
+  visibility: hidden;
+  pointer-events: none;
+}
+.popup__close {
+  transform: translate(550px, -10px);
+}
+.popup_show {
+  z-index: 150;
+  visibility: visible;
+  overflow: auto;
+  pointer-events: auto;
+}
+
+.popup_show .popup__content {
+  visibility: visible;
+  transform: scale(1);
+}
+
+.popup__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  flex: 1 1 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup__content {
+  visibility: hidden;
+  transform: scale(0);
+  transition: transform 0.3s ease 0s;
+  background-color: #eee;
+  padding: 20px;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 20px;
+}
+.popup__content_video {
+  max-width: auto;
+}
+.lock .popup__content {
+  visibility: visible;
+}
+
+.popup .form-popup {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+}
+.popup .form-popup__row {
+  display: flex;
+  column-gap: 40px;
+  align-items: center;
+}
+.popup .form-popup__wrapper {
+  width: 100%;
+}
+.popup .form-popup__input {
+  min-height: 60px;
+  padding: 20px;
+  background-color: transparent;
+  border: 1px solid #ced6db;
+  border-radius: 14px;
+  display: block;
+  width: 100%;
+  outline: none;
+  font-size: 13px;
+  line-height: 1.4615384615;
+  color: rgba(3, 17, 38, 0.45);
+}
+.popup .form-popup__input::placeholder {
+  transition: all 0.3s ease 0s;
+}
+.popup .form-popup__input:focus::placeholder {
+  transform: translate(-100%, 0);
+}
+.popup .form-popup__button {
+  width: 100%;
 }
 
 [class*=-ibg] {
@@ -482,7 +592,7 @@ body {
   transition: top 0.6s ease 0s;
   position: fixed;
   top: -100%;
-  background-color: #fff;
+  background: linear-gradient(180deg, white 65%, white 95%, rgba(255, 255, 255, 0.1) 100%);
   opacity: 0;
 }
 .header._header-show {
@@ -631,6 +741,10 @@ body {
 }
 .menu__link {
   transition: all 0.2s ease 0s;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 110%;
+  color: #031126;
 }
 @media (any-hover: hover) {
   .menu__link:hover {
@@ -779,7 +893,7 @@ body {
   flex: 1 1 50%;
 }
 .start__item_text {
-  padding-right: 20px;
+  padding-right: 50px;
 }
 @media (max-width: 47.99875em) {
   .start__item_text {
@@ -787,6 +901,34 @@ body {
     flex-direction: column;
     align-items: center;
     padding-right: 0;
+  }
+}
+.start__item_img {
+  margin-right: -250px;
+  position: relative;
+  z-index: 5;
+}
+@media (max-width: 47.99875em) {
+  .start__item_img {
+    margin-right: 0px;
+  }
+}
+.start__item_img img {
+  z-index: 5;
+}
+.start__item_img::before {
+  content: "";
+  width: 220px;
+  height: 900px;
+  position: absolute;
+  top: -120px;
+  right: 0;
+  background: url("../img/start/rectancle.png") 0 0 no-repeat;
+  z-index: 1;
+}
+@media (max-width: 47.99875em) {
+  .start__item_img::before {
+    display: none;
   }
 }
 @media (max-width: 47.99875em) {
@@ -895,6 +1037,8 @@ body {
 }
 .start__image {
   max-width: 100%;
+  position: relative;
+  z-index: 5;
 }
 .start__image img {
   max-width: 100%;
@@ -2555,6 +2699,7 @@ body {
   font-size: 15px;
   line-height: 170%;
   color: rgba(3, 17, 38, 0.6);
+  text-align: center;
 }
 @media (min-width: 75em) {
   .item-reviews__text {
@@ -2571,11 +2716,13 @@ body {
     font-size: 0.75rem;
   }
 }
+.connect__container {
+  background-color: #0098ff;
+  border-radius: 50px;
+}
 .connect__body {
   max-width: 612px;
   margin: 0 auto;
-  background-color: #0098ff;
-  border-radius: 50px;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -2656,6 +2803,7 @@ body {
 }
 .connect__input:focus::placeholder {
   transform: translate(100%, 0);
+  opacity: 0;
 }
 .connect__button {
   position: absolute;
